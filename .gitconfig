@@ -1,0 +1,11 @@
+[user]
+	name = Stavros Kroustouris
+	email = kroustou@gmail.com
+[core]
+	excludesfile = /Users/stauros/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/stauros/Library/Application Support/SourceTree/SourceTree 1.9.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
