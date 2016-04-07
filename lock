@@ -1,0 +1,5 @@
+#!/bin/bash
+scrot /tmp/screenshot.png
+convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png
+convert /tmp/screenshot.png $HOME/.xlock/key.png -gravity center -composite -matte /tmp/screenshot.png
+i3lock -u -i /tmp/screenshot.png
