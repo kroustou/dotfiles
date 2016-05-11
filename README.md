@@ -10,7 +10,7 @@ i3 lock is used by my 'lock' script in order to generate blured images with a lo
 so it should be added in $PATH.
 
 ### rofi
-I am using rofi as app launcher
+I am using rofi as app launcher. In order to use transparency i had to install compton.
 
 ### Font Awesome
 Also Font Awesome icons are required
