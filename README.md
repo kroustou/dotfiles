@@ -22,5 +22,9 @@ Also Font Awesome icons are required
 ## Sublime text 3
 I have also added my sublime configuration.
 
+## firefox
+bar and tabs in the same line: https://addons.mozilla.org/en-US/firefox/addon/prospector-oneLiner/?src=external-labs3
+theme: arc-dark
+
 # ToDo
 Write some scripts in order to automatically set up my desktop, even in a new setup.
