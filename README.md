@@ -7,7 +7,6 @@ Here is are some  screenshots of the current i3 setup:
 ![alt text](https://raw.githubusercontent.com/kroustou/dotfiles/master/images/i3.png "i3wm")
 ![alt text](https://raw.githubusercontent.com/kroustou/dotfiles/master/images/i3-vim.png "i3wm vim")
 ![alt text](https://raw.githubusercontent.com/kroustou/dotfiles/master/images/i3-sublime.png "sublime")
-![alt text](https://raw.githubusercontent.com/kroustou/dotfiles/master/images/i3-tmux.png "tmux")
 
 ### i3lock
 i3 lock is used by my 'lock' script in order to generate blured images with a locked icon in the middle,
@@ -18,9 +17,6 @@ I am using rofi as app launcher. In order to use transparency i had to install c
 
 ### Font Awesome
 Also Font Awesome icons are required
-
-## Sublime text 3
-I have also added my sublime configuration.
 
 ## firefox
 bar and tabs in the same line: https://addons.mozilla.org/en-US/firefox/addon/prospector-oneLiner/?src=external-labs3
