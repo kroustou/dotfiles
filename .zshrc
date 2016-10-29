@@ -49,18 +49,24 @@ export PATH=/usr/local/share/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/u
 export LC_ALL='en_US.UTF-8'
 export PATH="/usr/local/bin:$PATH"
 
-# export PIP_REQUIRE_VIRTUALENV=true
-# cache pip-installed packages to avoid re-downloading
+#cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
-PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+PATH=/usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
 export PATH
 
 # needed for virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+export WORKON_HOME=$HOME/code/.virtualenvs
+export PROJECT_HOME=$HOME/code
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
-function mcd() {
+source /usr/local/bin/virtualenvwrapper.sh
+
+
+
+functio nmcd() {
     mkdir -p "$1" && cd "$1";
 }
 
@@ -68,27 +74,7 @@ function myip() {
     ifconfig | grep 192 | cut -f2 -d' '
 }
 
-# marks: mark "name" (cwd)
-# jump "name"
-
-export MARKPATH=$HOME/.marks
-function jump { 
-    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
-}
-
-function mark { 
-    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
-}
-        
-function unmark { 
-    rm -i $MARKPATH/$1 
-}
-            
-function marks {
-    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
-}
-
 alias myip="ifconfig | grep 192 | awk '{print $2}' | cut -f2"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+alias subl='reattach-to-user-namespace subl'
+export PIP_REQUIRE_VIRTUALENV=false
+export EVENT_NOKQUEUE=1
