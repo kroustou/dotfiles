@@ -23,10 +23,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-set background=dark
-colorscheme solarized
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,7 +69,6 @@ syntax on
 " nerdtree ignore
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
 " Always show statusline
 set laststatus=2
