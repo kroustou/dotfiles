@@ -1,6 +1,7 @@
 set nocompatible              " required
 set encoding=utf-8
 filetype off                  " required
+set nu
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -12,18 +13,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+" Add all your plugins here (note older versions of Vundle used Bundle
+" instead of Plugin)
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'bitc/vim-bad-whitespace'
-Bundle 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,6 +39,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+set colorcolumn=79
 au BufNewFile,BufRead *.py
     \set tabstop=4
     \set softtabstop=4
@@ -45,6 +48,7 @@ au BufNewFile,BufRead *.py
     \set expandtab
     \set autoindent
     \set fileformat=unix
+    \let python_highlight_all = 1
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \set tabstop=4
@@ -68,7 +72,7 @@ let python_highlight_all=1
 syntax on
 " nerdtree ignore
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
+let g:NERDTreeWinSize = 40
 
 " Always show statusline
 set laststatus=2
