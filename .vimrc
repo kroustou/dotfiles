@@ -1,6 +1,8 @@
 set nocompatible              " required
 set encoding=utf-8
+set clipboard=unnamed
 filetype off                  " required
+set backspace=2
 set nu
 
 " set the runtime path to include Vundle and initialize
@@ -17,7 +19,6 @@ Plugin 'gmarik/Vundle.vim'
 " instead of Plugin)
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'bitc/vim-bad-whitespace'
-Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -26,6 +27,14 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'dracula/vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mattn/emmet-vim'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,31 +59,37 @@ au BufNewFile,BufRead *.py
     \set fileformat=unix
     \let python_highlight_all = 1
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \set tabstop=4
-    \set softtabstop=4
-    \set shiftwidth=4
 
-
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
 let python_highlight_all=1
 syntax on
 " nerdtree ignore
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:NERDTreeWinSize = 40
 
-" Always show statusline
-set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+" Always show statusline
+set laststatus=2
+
+colorscheme dracula
+set cursorline
+
+
+
+" jedi
+let g:jedi#use_splits_not_buffers = "right"
