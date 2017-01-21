@@ -17,6 +17,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle
 " instead of Plugin)
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'nvie/vim-flake8'
@@ -42,11 +44,23 @@ filetype plugin indent on    " required
 
 set splitbelow
 set splitright
+
+" buffers
+" Alt + {H, L} -> b{next, prev}
+nnoremap ¬ :bnext<CR>
+nnoremap ˙ :bprevious<CR>
+" Close buffer with alt-w
+nnoremap ∑ :bdelete<CR>
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+au BufRead *.js set makeprg=eslint\ %
+autocmd filetype javascript set sw=2 ts=2 expandtab
+let g:acp_completeoptPreview=1
 
 set colorcolumn=79
 au BufNewFile,BufRead *.py
@@ -89,7 +103,20 @@ set laststatus=2
 colorscheme dracula
 set cursorline
 
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
 
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " jedi
 let g:jedi#use_splits_not_buffers = "right"
+
+" use ag for ctrlp
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
