@@ -56,29 +56,26 @@ nnoremap ∑ :bdelete<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-H> <C-w>h
+if has('nvim')
+     nmap <BS> <C-W>h
+ endif
 
 au BufRead *.js set makeprg=eslint\ %
 autocmd filetype javascript set sw=2 ts=2 expandtab
+
 let g:acp_completeoptPreview=1
 
-set colorcolumn=79
-au BufNewFile,BufRead *.py
-    \set tabstop=4
-    \set softtabstop=4
-    \set shiftwidth=4
-    \set textwidth=79
-    \set expandtab
-    \set autoindent
-    \set fileformat=unix
-    \let python_highlight_all = 1
-
+set colorcolumn=80
 
 let python_highlight_all=1
 syntax on
+
 " nerdtree ignore
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:NERDTreeWinSize = 40
+map <C-N> :NERDTreeToggle<CR>
+
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
@@ -120,3 +117,48 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ --ignore "**/*.pyc"
       \ -g ""'
+
+
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
+" jj is escape now
+inoremap jj <ESC>
+
+" leader ,
+let mapleader = ","
+" search selected text
+vnoremap // y/<C-R>"<CR>
+
+" Tabwidth
+" - Python
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set softtabstop=4
+autocmd FileType python set tabstop=4
+
+" - HTML
+autocmd FileType html set shiftwidth=2
+autocmd FileType html set softtabstop=2
+autocmd FileType html set tabstop=2
+
+" - HTML-Django
+autocmd FileType htmldjango set shiftwidth=2
+autocmd FileType htmldjango set softtabstop=2
+autocmd FileType htmldjango set tabstop=2
+
+" - CSS
+autocmd FileType css set shiftwidth=2
+autocmd FileType css set softtabstop=2
+autocmd FileType css set tabstop=2
+
+" - JavaScript
+autocmd FileType javascript set shiftwidth=2
+autocmd FileType javascript set softtabstop=2
+autocmd FileType javascript set tabstop=2
+
+" Abbreviations
+iabbrev *args, *args, **kwargs
+iabbrev blank=True, blank=True, null=True
+iabbrev null=True, null=True, blank=True
+iabbrev ipdb from ipdb import set_trace; set_trace()
+i
