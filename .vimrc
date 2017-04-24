@@ -29,14 +29,18 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'dracula/vim'
+"Plugin 'liuchengxu/space-vim-dark'
+"Plugin 'effkay/argonaut.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
+Plugin 'w0rp/ale'
+Plugin 'christoomey/vim-tmux-navigator'
+Bundle 'chase/vim-ansible-yaml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,19 +89,16 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
 " Always show statusline
 set laststatus=2
 
-colorscheme dracula
+colorscheme dracula 
 set cursorline
 
 " Enable the list of buffers
@@ -119,11 +120,13 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 
 
+set lazyredraw
+
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
-" jj is escape now
-inoremap jj <ESC>
+" jk is escape now
+inoremap jk <ESC>
 
 " leader ,
 let mapleader = ","
@@ -135,6 +138,7 @@ vnoremap // y/<C-R>"<CR>
 autocmd FileType python set shiftwidth=4
 autocmd FileType python set softtabstop=4
 autocmd FileType python set tabstop=4
+set expandtab
 
 " - HTML
 autocmd FileType html set shiftwidth=2
@@ -161,4 +165,14 @@ iabbrev *args, *args, **kwargs
 iabbrev blank=True, blank=True, null=True
 iabbrev null=True, null=True, blank=True
 iabbrev ipdb from ipdb import set_trace; set_trace()
-i
+
+set foldenable          " enable folding 
+
+" allows cursor change in tmux mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
