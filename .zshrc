@@ -1,11 +1,13 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=/usr/local/go/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="mh"
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,12 +53,12 @@ ZSH_THEME="mh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+export GOPATH=/opt/gopath/
+
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -68,29 +70,21 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-PATH=/usr/local/Cellar/python/2.7.12/Frameworks/Python.framework/Versions/2.7/bin/:$PATH
-export PATH
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+set -o vi
+bindkey -M viins 'jk' vi-cmd-mode
 
-functio nmcd() {
-    mkdir -p "$1" && cd "$1";
-}
-
-function myip() {
-    ifconfig | grep 192 | cut -f2 -d' '
-}
-
-alias myip="ifconfig | grep 192 | awk '{print $2}' | cut -f2"
-alias subl='reattach-to-user-namespace subl'
-export PIP_REQUIRE_VIRTUALENV=false
-export EVENT_NOKQUEUE=1
-
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
-#export TERM="screen-256color" 
-alias tmux="tmux -2"
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
