@@ -22,21 +22,15 @@ Plugin 'fatih/vim-go'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'bitc/vim-bad-whitespace'
-Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'tomtom/tlib_vim'
 Plugin 'dracula/vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'pangloss/vim-javascript'
@@ -47,6 +41,11 @@ Plugin 'moll/vim-node'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_saved = 1
+
+colorscheme dracula
+set t_Co=256
 
 set splitbelow
 set splitright
@@ -65,7 +64,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-w>h
 if has('nvim')
      nmap <BS> <C-W>h
- endif
+endif
 
 au BufRead *.js set makeprg=eslint\ %
 autocmd filetype javascript set sw=2 ts=2 expandtab
@@ -84,22 +83,17 @@ let g:NERDTreeWinSize = 40
 map <C-N> :NERDTreeToggle<CR>
 nmap ,n :NERDTreeFind<CR>
 
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
 
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+"let g:ale_linters = {'javascript': ['eslint'], }
 
-" Always show statusline
+"Always show statusline
 set laststatus=2
 
-colorscheme dracula
 set cursorline
 
 " Enable the list of buffers
@@ -175,11 +169,10 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-
 " tell it to use an undo file
 set undofile
 " set a directory to store the undo history
-set undodir=/home/skroustouris/.vimundo/
+set undodir=/tmp/.vimundo/
 
 
 let g:user_emmet_settings = {

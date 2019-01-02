@@ -1,4 +1,4 @@
-export ZSH=/home/stauros/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -21,5 +21,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 alias tmux='tmux -u'
-
+alias vim='nvim'
+set -o vi
+bindkey -M viins 'jk' vi-cmd-mode
+export TERM=xterm-256color
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
