@@ -18,7 +18,6 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle
 " instead of Plugin)
 Plugin 'mxw/vim-jsx'
-Plugin 'fatih/vim-go'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
