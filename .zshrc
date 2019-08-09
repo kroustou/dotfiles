@@ -20,9 +20,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-alias tmux='tmux -u'
+alias tmux='tmux -u -2'
 alias vim='nvim'
+export VISUAL=vim
+export EDITOR="$VISUAL"
 set -o vi
+set PATH=$PATH:/opt/rh/rh-nodejs10/root/usr/bin/
 bindkey -M viins 'jk' vi-cmd-mode
-export TERM=xterm-256color
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.env

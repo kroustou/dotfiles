@@ -1,31 +1,73 @@
-{
-    "env": {
-        "browser": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "parser": "babel-eslint",
-    "plugins": [
-        "react"
+module.exports = {
+  root: true, // So parent files don't get applied
+  env: {
+    es6: true,
+    browser: true,
+    node: true,
+    mocha: true,
+  },
+  extends: ['plugin:import/recommended', 'airbnb', 'prettier', 'prettier/react'],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: 7,
+    sourceType: 'module',
+  },
+  plugins: ['babel', 'prettier', 'react-hooks'],
+  rules: {
+    // Check prettier
+    'prettier/prettier': 'error',
+
+    // Unstable rules are disabled
+    'react/jsx-curly-brace-presence': 'off',
+    'react/require-default-props': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'jsx-a11y/label-has-for': 'off', // deprecated
+    'linebreak-style': 'off', // Doesn't play nicely with Windows
+
+    // Strict, airbnb is using warn
+    'no-console': 'error',
+    'no-alert': 'error',
+    'react/no-danger': 'error',
+    'no-constant-condition': 'error',
+
+    // Strict, airbnb is using off
+    'react/no-direct-mutation-state': 'error',
+    'react/sort-prop-types': 'error',
+
+    // Airbnb use error
+    'no-prototype-builtins': 'off',
+    'react/forbid-prop-types': 'off',
+    'react/no-find-dom-node': 'off',
+
+    'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+    'consistent-this': ['error', 'self'],
+    'max-len': [
+      'error',
+      100,
+      2,
+      {
+        ignoreUrls: true,
+      },
+    ], // airbnb is allowing some edge cases
+    'import/namespace': ['error', { allowComputed: true }],
+    'import/order': [
+      'error',
+      {
+        groups: [['index', 'sibling', 'parent', 'internal', 'external', 'builtin']],
+        'newlines-between': 'never',
+      },
     ],
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ]
-    }
-}
+    'react/jsx-handler-names': [
+      'error',
+      {
+        // airbnb is disabling this rule
+        eventHandlerPrefix: 'handle',
+        eventHandlerPropPrefix: 'on',
+      },
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'react/jsx-filename-extension': ['error', { extensions: ['.js'] }], // airbnb is using .jsx
+  },
+};
+

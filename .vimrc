@@ -18,16 +18,19 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle
 " instead of Plugin)
 Plugin 'mxw/vim-jsx'
+Bundle 'groovy.vim--Ruley'
+Bundle 'marslo/Jenkinsfile-vim-syntax'
+Bundle 'keith/cocoapods.vim'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-Plugin 'dracula/vim'
+Plugin 'connorholyday/vim-snazzy'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
@@ -39,12 +42,15 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'moll/vim-node'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
+
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_saved = 1
 
-colorscheme dracula
+colorscheme snazzy
 set t_Co=256
+"set termguicolors
 
 set splitbelow
 set splitright
@@ -68,6 +74,11 @@ endif
 au BufRead *.js set makeprg=eslint\ %
 autocmd filetype javascript set sw=2 ts=2 expandtab
 
+autocmd syntax groovy,Jenkinsfile setlocal foldmethod=indent
+autocmd Syntax c,cpp,python,vim,xml,html,xhtml,vim,groovy,Jenkinsfile normal zM
+autocmd Syntax c,cpp,python,vim,xml,html,xhtml,vim,groovy,Jenkinsfile let g:indentLine_loaded=1
+autocmd FileType groovy,Jenkinsfile,sh set tabstop=2 softtabstop=2 shiftwidth=2
+
 let g:acp_completeoptPreview=1
 
 set colorcolumn=80
@@ -75,12 +86,6 @@ set colorcolumn=80
 let python_highlight_all=1
 syntax on
 
-" nerdtree ignore
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-let g:NERDTreeWinSize = 40
-
-map <C-N> :NERDTreeToggle<CR>
-nmap ,n :NERDTreeFind<CR>
 
 
 " Syntastic
@@ -88,7 +93,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"let g:ale_linters = {'javascript': ['eslint'], }
+let g:ale_linters = {'javascript': ['eslint'], }
+let g:ale_fixers = {
+ \ 'javascript': ['eslint']
+ \ }
 
 "Always show statusline
 set laststatus=2
@@ -164,8 +172,6 @@ endif
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " let g:syntastic_javascript_checkers = ['eslint']
-
-
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " tell it to use an undo file
@@ -173,10 +179,9 @@ set undofile
 " set a directory to store the undo history
 set undodir=/tmp/.vimundo/
 
+" nerdtree ignore
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:NERDTreeWinSize = 40
 
-let g:user_emmet_settings = {
-                        \  'javascript' : {
-                        \      'extends' : 'jsx',
-                        \  },
-                        \}
-
+map <C-N> :NERDTreeToggle<CR>
+nmap ,m :NERDTreeFind<CR>

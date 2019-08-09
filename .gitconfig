@@ -1,8 +1,25 @@
 [user]
 	name = Stavros Kroustouris
-	email = kroustou@gmail.com
+	email = skroustouris@verisign.com
 [core]
 	excludesfile = /Users/stauros/.gitignore_global
+        editor = nvim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+  status = auto
+
+[color "status"]
+added = green
+changed = blue
+untracked = magenta
+deleted = red
+[push]
+	default = simple
