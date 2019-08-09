@@ -49,6 +49,7 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_saved = 1
 
 colorscheme snazzy
+set background=dark
 set t_Co=256
 "set termguicolors
 
@@ -85,8 +86,6 @@ set colorcolumn=80
 
 let python_highlight_all=1
 syntax on
-
-
 
 " Syntastic
 set statusline+=%#warningmsg#
