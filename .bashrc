@@ -101,3 +101,7 @@ source $OSH/oh-my-bash.sh
 # alias ohmybash="mate ~/.oh-my-bash"
 alias vim="nvim"
 alias grep=ag
+set -o vi
+bind '"jk":vi-movement-mode'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
