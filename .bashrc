@@ -76,7 +76,7 @@ source $OSH/oh-my-bash.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+#export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -105,3 +105,5 @@ set -o vi
 bind '"jk":vi-movement-mode'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
