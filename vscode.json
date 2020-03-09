@@ -1,0 +1,19 @@
+{
+    "workbench.colorTheme": "Nord",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "git.ignoreLegacyWarning": true,
+    "git.ignoreMissingGitWarning": true,
+    "docker.explorerRefreshInterval": 10000
+}

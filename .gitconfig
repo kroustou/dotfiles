@@ -3,7 +3,6 @@
 	email = skroustouris@verisign.com
 [core]
 	excludesfile = /Users/stauros/.gitignore_global
-        editor = nvim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 

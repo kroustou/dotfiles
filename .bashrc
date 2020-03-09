@@ -3,7 +3,7 @@ export OSH=/home/skroustouris/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="font"
+OSH_THEME="modern-t"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,11 +99,12 @@ source $OSH/oh-my-bash.sh
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
-alias vim="nvim"
-alias grep=ag
+#alias vim="nvim"
+#alias grep=ag
 set -o vi
 bind '"jk":vi-movement-mode'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
+source ~/.env

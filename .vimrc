@@ -17,6 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle
 " instead of Plugin)
+Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
 Bundle 'groovy.vim--Ruley'
 Bundle 'marslo/Jenkinsfile-vim-syntax'
