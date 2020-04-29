@@ -1,3 +1,4 @@
+echo "Initializing..."
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
@@ -29,3 +30,8 @@ set PATH=$PATH:/opt/rh/rh-nodejs10/root/usr/bin/
 bindkey -M viins 'jk' vi-cmd-mode
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.env
+if type exa; then
+   alias ls=exa
+   echo "ls -> exa"
+fi
+echo "Done"
