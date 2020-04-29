@@ -34,4 +34,5 @@ if type exa; then
    alias ls=exa
    echo "ls -> exa"
 fi
+export TERM=xterm-256color
 echo "Done"
