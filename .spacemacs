@@ -44,9 +44,7 @@ values."
      git
      markdown
      org
-     (shell :variables
-             shell-default-height 30
-             shell-default-position 'bottom)
+     shell
      spell-checking
      syntax-checking
      version-control
@@ -313,6 +311,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (unless (file-exists-p (concat spacemacs-cache-directory "undo"))
   (make-directory (concat spacemacs-cache-directory "undo")))
 ;;  (setq gofmt-command "goimports")
+  (setq-default dotspacemacs-configuration-layers
+              '((shell :variables
+                        shell-default-position 'right
+                        shell-default-width 40)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
