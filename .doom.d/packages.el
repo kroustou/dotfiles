@@ -48,4 +48,4 @@
 (package! evil-snipe :disable t)
 (package! go-mode)
 (package! jedi)
-(package! org-super-agenda)
+(package! blacken)
