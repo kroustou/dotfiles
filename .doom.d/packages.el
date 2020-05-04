@@ -47,3 +47,5 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 (package! evil-snipe :disable t)
 (package! go-mode)
+(package! jedi)
+(package! org-super-agenda)
