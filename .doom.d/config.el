@@ -21,6 +21,7 @@
 (setq
  doom-font (font-spec :family "monospace" :size 14)
  projectile-project-search-path '("~/projects/")
+ org-log-done 'time
 )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
