@@ -49,3 +49,4 @@
 (package! go-mode)
 (package! jedi)
 (package! blacken)
+(package! jenkins)
