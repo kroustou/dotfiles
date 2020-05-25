@@ -50,4 +50,3 @@
 (package! jedi)
 (package! blacken)
 (package! jenkins)
-(package! robot-mode)
