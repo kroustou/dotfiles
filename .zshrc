@@ -1,3 +1,4 @@
+echo "Initializing..."
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
@@ -20,12 +21,14 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source ~/.env
-alias tmux='tmux -u -2'
-alias vim='nvim'
-export VISUAL=vim
-export EDITOR="$VISUAL"
 set -o vi
-set PATH=$PATH:/opt/rh/rh-nodejs10/root/usr/bin/
 bindkey -M viins 'jk' vi-cmd-mode
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.env
+if type exa; then
+   alias ls=exa
+   echo "ls -> exa"
+fi
+
+export TERM=xterm-256color
+echo "Done"
