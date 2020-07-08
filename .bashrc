@@ -3,7 +3,7 @@ export OSH=/home/skroustouris/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="modern-t"
+OSH_THEME="brainy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -107,4 +107,4 @@ bind '"jk":vi-movement-mode'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
-source ~/.env
+#source ~/.env

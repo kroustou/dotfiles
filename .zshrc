@@ -1,6 +1,6 @@
 echo "Initializing..."
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="bureau"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -19,7 +19,6 @@ plugins=(
   git
 )
 
-source $ZSH/oh-my-zsh.sh
 
 set -o vi
 bindkey -M viins 'jk' vi-cmd-mode
