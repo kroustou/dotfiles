@@ -1,10 +1,10 @@
 [user]
 	name = Stavros Kroustouris
 	email = skroustouris@verisign.com
+	signingkey = 5CCCE9F7950ADC5D
+
 [core]
 	excludesfile = /Users/stauros/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 
 [color]
   diff = auto
@@ -16,9 +16,16 @@
   status = auto
 
 [color "status"]
-added = green
-changed = blue
-untracked = magenta
-deleted = red
+	added = green
+	changed = blue
+	untracked = magenta
+	deleted = red
+
 [push]
 	default = simple
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = gpg2
