@@ -49,4 +49,5 @@
 (package! go-mode)
 (package! jedi)
 (package! blacken)
-(package! jenkins)
+(package! jenkinsfile-mode)
+(package! org-jira)
