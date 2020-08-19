@@ -20,7 +20,7 @@
 ;; font string. You generally only need these two:
 (setq
  doom-font (font-spec :family "monospace" :size 14)
- projectile-project-search-path '("~/projects/")
+ projectile-project-search-path '("/home/skroustouris/projects/")
  org-log-done 'time
  ivy-re-builders-alist
       '((t . ivy--regex-fuzzy))

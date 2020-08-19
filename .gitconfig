@@ -1,7 +1,7 @@
 [user]
 	name = Stavros Kroustouris
 	email = skroustouris@verisign.com
-	signingkey = 5CCCE9F7950ADC5D
+	#signingkey = 5CCCE9F7950ADC5D
 
 [core]
 	excludesfile = /Users/stauros/.gitignore_global
@@ -25,7 +25,9 @@
 	default = simple
 
 [commit]
-	gpgsign = true
+	#gpgsign = true
 
 [gpg]
 	program = gpg2
+[alias]
+	pf = push --force-with-lease

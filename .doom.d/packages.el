@@ -51,3 +51,4 @@
 (package! blacken)
 (package! jenkinsfile-mode)
 (package! org-jira)
+(package! highlight-indentation)
