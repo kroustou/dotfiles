@@ -53,3 +53,4 @@
 (package! org-jira)
 (package! highlight-indentation)
 (package! yaml-mode)
+(package! indent-guide)
