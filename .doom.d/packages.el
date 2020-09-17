@@ -54,3 +54,4 @@
 (package! highlight-indentation)
 (package! yaml-mode)
 (package! indent-guide)
+(package! undo-tree)
