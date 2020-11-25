@@ -55,3 +55,4 @@
 (package! yaml-mode)
 (package! indent-guide)
 (package! undo-tree)
+(package! kubernetes-evil)
