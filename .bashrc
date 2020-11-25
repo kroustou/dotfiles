@@ -107,4 +107,5 @@ bind '"jk":vi-movement-mode'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 LANG=en_US.utf-8
 LC_ALL=en_US.utf-8
-#source ~/.env
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
