@@ -56,3 +56,4 @@
 ;; they are implemented.
 (indent-guide-global-mode)
 (global-undo-tree-mode)
+(projectile-discover-projects-in-directory)
