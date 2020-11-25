@@ -56,3 +56,5 @@
 (package! indent-guide)
 (package! undo-tree)
 (package! kubernetes-evil)
+(package! ansible)
+(package! docker)
