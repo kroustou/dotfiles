@@ -59,3 +59,6 @@
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
 (add-hook 'ansible-hook 'ansible-auto-decrypt-encrypt)
 (projectile-discover-projects-in-directory "~/projects/")
+
+(after! flycheck
+  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
