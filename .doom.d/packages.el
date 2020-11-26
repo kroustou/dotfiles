@@ -58,3 +58,5 @@
 (package! kubernetes-evil)
 (package! ansible)
 (package! docker)
+(package! terraform-mode)
+
